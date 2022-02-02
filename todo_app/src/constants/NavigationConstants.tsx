@@ -1,21 +1,20 @@
 import React from 'react';
-import { TaskManagerPage } from '../routes/TaskManager/TaskManagerRoute';
 import { About } from '../routes/About/About';
-import { LinkRenderProps } from '../types/types';
+import { LinkProps, Buffer } from '../types/types';
 import { MainPage } from '../routes/MainPage/MainPage';
-import {v4 as uuid} from 'uuid';
+import { TaskManager } from '../routes/TaskManager/TaskManager';
 
-const ConstantRoutesBuffer = {StartPage:{path:'/',element:<MainPage/>},
-                        TaskManager:{path:'TaskManager', element:<TaskManagerPage/>},
+const constantRoutesBuffer = {StartPage:{path:'/',element:<MainPage/>},
+                        TaskManager:{path:'TaskManager', element:<TaskManager/>},
                         About:{path:'About', element:<About/>},
                         NotFound:{path:'*', element:<p>Nothing</p>}};
 
-const ConstantLinksBuffer= {ToTaskManager:{ to:'/TaskManager',value: 'TaskManager'},
+const constantLinksBuffer: Buffer<LinkProps>= {ToTaskManager:{ to:'/TaskManager',value: 'TaskManager'},
                     ToAbout:{to:'/About',value:'About'}};
 
-const ConstantLinks:LinkRenderProps[] = [{key:uuid(),body:ConstantLinksBuffer.ToTaskManager},
-                                {key:uuid(),body:ConstantLinksBuffer.ToAbout}]
+const constantLinks:LinkProps[] = [constantLinksBuffer.ToTaskManager,
+                                constantLinksBuffer.ToAbout];
 
-const NavigationConstants = {ConstantRoutesBuffer, ConstantLinks, ConstantLinksBuffer};
+const navigationConstants = {ConstantRoutesBuffer: constantRoutesBuffer, ConstantLinks: constantLinks, ConstantLinksBuffer: constantLinksBuffer};
 
-export default  NavigationConstants;
+export default  navigationConstants;

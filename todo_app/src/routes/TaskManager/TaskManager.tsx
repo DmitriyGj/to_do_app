@@ -1,15 +1,16 @@
-import React, { useState,useCallback } from 'react';
-import {TaskList} from '../TaskList/TaskList';
-import {ModalWindow} from '../ModalWindow/ModalWindow';
-import { TaskController } from '../TaskContoller/TaskController';
-import { CustomSelect } from '../CustomSelect/CustomSelect';
-import { TaskFilterOptions } from '../../constants/FilterConstants';
+import React, { useState,useCallback, FC } from 'react';
+import { TaskList } from '../../Components/TaskList/TaskList';
+import { ModalWindow } from '../../Components/ModalWindow/ModalWindow';
+import { TaskController } from '../../Components/TaskContoller/TaskController';
+import { CustomSelect } from '../../Components/CustomSelect/CustomSelect';
+import { taskFilterOptions } from '../../constants/FilterConstants';
 import { useDispatch, useSelector,Provider } from 'react-redux';
-import { changeFilter,getFilter } from '../../reducers/FilterReducer';
+import { changeFilter } from '../../reducers/FilterReducer';
+import { getFilter} from '../../selectors/CustomFilterSelectors'
 import { TaskManagerStore } from '../../store/TaskManagerStore';
 
-export const TaskManager:React.FunctionComponent = function TaskManager(){
-    const [isOpenModal,setIsOpenModal]=useState(false);
+export function TaskManager(){
+    const [isOpenModal,setIsOpenModal]=useState<boolean>(false);
     const dispatch =useDispatch();
     const filter = useSelector(getFilter);
     const changeFilterHandler = useCallback((value:string)=>dispatch(changeFilter(value)),
@@ -21,7 +22,7 @@ export const TaskManager:React.FunctionComponent = function TaskManager(){
                     <CustomSelect title='Показать'
                                 parentValue={filter.name}
                                 changeValueParentHandler={changeFilterHandler}
-                                options={TaskFilterOptions}/>
+                                options={taskFilterOptions}/>
                     <button onClick={()=>setIsOpenModal(true)}>Добавить задачу</button>
                 </div>
                 <TaskList></TaskList>

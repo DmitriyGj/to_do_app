@@ -6,8 +6,8 @@ import { NavigationMenu } from '../../Components/NavigationMenu/NavigationMenu';
 import './MainPage.css';
 
 
-export const MainPage = function MainPage(){
-    const [appTheme, setAppTheme] = useState(theme.Usual);
+export function MainPage(){
+    const [appTheme, setAppTheme] = useState<string>(theme.Usual);
     const toggleThemeHandler =()=> setAppTheme(appTheme === theme.Usual?theme.Light:theme.Usual);
 
     return(<ThemeContext.Provider value={appTheme}>

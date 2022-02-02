@@ -12,7 +12,6 @@ export type TaskFilter ={
 }
 
 export interface ICustomSelectOption{
-    key:string,
     value:string,
     label:string
 }
@@ -75,7 +74,3 @@ export type LinkProps={
     value:string
 }
 
-export type LinkRenderProps = {
-    key:string
-    body:LinkProps
-}

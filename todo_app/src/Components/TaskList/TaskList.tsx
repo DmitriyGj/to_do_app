@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
-import {Task} from '../Task/Task';
-import {getTasks} from '../../reducers/TaskReduser';
+import { Task } from '../Task/Task';
+import { getTasks } from '../../reducers/TaskReduser';
 import './TaskList.css'
 
-export const TaskList: React.FunctionComponent = function TodoList() {
+export function TaskList() {
     const tasks = useSelector(getTasks); 
     return(
         <div className='TaskList'>

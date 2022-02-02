@@ -1,7 +1,7 @@
 import React from 'react';
 import './About.css'
 
-export const About = function About(){
+export function About(){
     return(<div className='Author-info'>
             <div>
                 <p>Автор</p>

@@ -34,7 +34,7 @@ export const tasksSlice = createSlice({
         editTask:(state,action)=>{
             const {id,...rest} = action.payload;
             const indexOfTask = state.tasks.findIndex(task=>task.id === id);
-            state.tasks[indexOfTask] = {id:id,...rest};
+            state.tasks[indexOfTask] = {id,...rest};
         }
     }
 });

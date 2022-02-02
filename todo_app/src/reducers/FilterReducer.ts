@@ -1,12 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {RootState} from '../store/TaskManagerStore';
-import {TaskFiltersBuffer} from '../constants/FilterConstants';
+import {taskFiltersBuffer} from '../constants/FilterConstants';
 import {FilterState} from '../types/types'
 
 
 
-const initialState:FilterState = {currentFilter:TaskFiltersBuffer.All,
-                    FiltersBuffer:TaskFiltersBuffer}
+const initialState:FilterState = {currentFilter:taskFiltersBuffer.All,
+                    FiltersBuffer:taskFiltersBuffer}
 
 export const filterSlice = createSlice({
     name:'Filter',
@@ -20,5 +19,4 @@ export const filterSlice = createSlice({
 
 
 export const {changeFilter} = filterSlice.actions;
-export const getFilter = (state:RootState) => state.Filter.currentFilter;;
 export default filterSlice.reducer;
