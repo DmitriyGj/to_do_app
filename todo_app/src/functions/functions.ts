@@ -1,12 +1,4 @@
-export const onKeyDown = (keyName:string,func:()=>void ) =>{
-    return (e:KeyboardEvent)=>{
-        switch(e.key){
-            case `${keyName}`:
-                func();
-                break;
-        }
-    }
-}
+export const onKeyDown = (keyName:string,func:()=>void ) => (e:KeyboardEvent)=>e.key === keyName && func();
 
 export const toDateString = (date:Date)=>{
     const days = (`0${date.getDate()}`).slice(-2);

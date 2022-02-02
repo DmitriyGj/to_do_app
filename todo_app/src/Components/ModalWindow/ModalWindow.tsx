@@ -9,24 +9,24 @@ export const ModalWindow =
         title = '',
         content = '',
         footer = '',
-        onClose, }: ModalProps)=> {
+        onClose: closeHandler, }: ModalProps)=> {
 
     useEffect(() => {
-        const onKeydownHandler = (e:KeyboardEvent)=> onKeyDown('Escape',onClose)(e)
+        const onKeydownHandler = (e:KeyboardEvent)=> onKeyDown('Escape',closeHandler)(e)
         document.addEventListener('keydown', onKeydownHandler)
         return () => document.removeEventListener('keydown',onKeydownHandler)
-    },[onClose])
+    },[closeHandler])
 
     if (!visible) return null
 
     return (<ThemeContext.Consumer>{value=>
-                <div className={`modal modal-theme-${value}`} onClick={onClose}>
+                <div className={`modal modal-theme-${value}`} onClick={closeHandler}>
                     <div className={`modal-dialog $modal-theme-${value}`} onClick={e => e.stopPropagation()}>
 
                         <div className='modal-header'>
                             <h3 className='modal-title'>{title}</h3>
                             <span className='modal-close' 
-                                onClick={onClose}>
+                                onClick={closeHandler}>
                             &times;
                             </span>
                         </div>

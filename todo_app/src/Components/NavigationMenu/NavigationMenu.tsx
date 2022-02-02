@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import navigationConstants from '../../constants/NavigationConstants';
 import { Link } from 'react-router-dom'
 import { LinkProps } from '../../types/types';

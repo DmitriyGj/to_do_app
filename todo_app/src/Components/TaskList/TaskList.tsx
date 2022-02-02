@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { Task } from '../Task/Task';
-import { getTasks } from '../../reducers/TaskReduser';
+import { getTasks } from '../../selectors/TaskSelectors';
 import './TaskList.css'
 
 export function TaskList() {

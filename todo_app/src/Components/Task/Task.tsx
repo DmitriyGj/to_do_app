@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { useCallback } from 'react';
 import { TTask } from '../../types/types';
 import { useDispatch } from 'react-redux'
 import { useState } from 'react';
@@ -15,6 +15,7 @@ export function Task(props: TTask){
     const dispatch = useDispatch();
 
     const [isOpenModal,setIsOpenModal]  = useState<boolean>(false);
+    const closeModal = useCallback(()=> setIsOpenModal(false), []);
 
     const removeTaskHandler = (id:string) => dispatch(removeTask(id));
     const changeDoneStateHandler = (id:string) => dispatch(changeDoneState(id));
@@ -48,7 +49,7 @@ export function Task(props: TTask){
                     content={<TaskController task={props} 
                             closeModal = {()=>setIsOpenModal(false)}/>}
                     footer={<button onClick={()=>setIsOpenModal(false)}>Закрыть</button>}
-                    onClose={()=>setIsOpenModal(false)}/>}
+                    onClose={closeModal}/>}
             </div>}
         </ThemeContext.Consumer> 
     );

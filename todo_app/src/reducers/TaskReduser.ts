@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {RootState} from '../store/TaskManagerStore';
 import {v4 as uuid} from 'uuid'
 import {TaskState} from '../types/types';
 import { toDateString } from '../functions/functions';
@@ -41,8 +40,5 @@ export const tasksSlice = createSlice({
 
 
 export const {addTask, removeTask, changeDoneState,editTask} = tasksSlice.actions;
-export const getTasks = (state:RootState)=>{
-    const {Filter,Tasks} = state;
-    return Tasks.tasks.filter(Filter.currentFilter.func);
-}
+
 export default tasksSlice.reducer;

@@ -1,6 +1,6 @@
-import { Buffer,TaskFilter, ICustomSelectOption } from '../types/types';
+import { Buffer as IBuffer,TaskFilter, ICustomSelectOption } from '../types/types';
 
-export const taskFiltersBuffer:Buffer<TaskFilter>={
+export const taskFiltersBuffer:IBuffer<TaskFilter>={
     All:{func:(task)=>task,name:'All'},
     Done:{func:(task)=>task.done,name:'Done'},
     NotDone:{func:(task)=>!task.done,name:'NotDone'}};

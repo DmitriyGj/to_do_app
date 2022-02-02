@@ -13,7 +13,7 @@
 }
 
 .App-body{
-  height:calc(77.6vh);
+  min-height:calc(77vh);
 }
 
 .App-header {
